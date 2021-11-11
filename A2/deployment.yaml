@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: example-deployment
+spec:
+  selector:
+    matchLabels:
+      run: example-deployment
+  replicas: 2
+  template:
+    metadata:
+      labels:
+        run: example-deployment
+    spec:
+      containers:
+      - name: example-deployment
+        image: task-a2
+        imagePullPolicy: Never
+        ports:
+        - containerPort: 80
